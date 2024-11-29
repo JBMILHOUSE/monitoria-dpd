@@ -7,8 +7,19 @@ const app = fastify();
 
 connectionDatabase();
 app.register(fastifyCors, {
-  origin: 'http://localhost:5173', // localhost:flutter
+  // origin: (origin, cb) => {
+  //   const allowedOrigins = ['http://localhost:60179', 'http://localhost:3333/']
+  //   console.log(allowedOrigins)
+  //   if(!origin || allowedOrigins.includes(origin)){
+  //     cb(null, true)
+  //     return true
+  //   } else {
+  //     cb(new Error('erro de cors'), false);
+  //   }
+  // }, // localhost:flutter
+  origin: 'http://localhost:60179',
   methods: ['GET', 'POST', 'DELETE'],
+  
 });
 
 app.get('/monitores', getMonitores);

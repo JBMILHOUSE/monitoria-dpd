@@ -7,7 +7,7 @@ POST http://localhost:3333/monitor
 Content-Type: 'application/json'
 
 {
-  "nome": "Jorge",
+  "nome": "Matheus",
   "avatar": "",
   "horarios": [
     { "dia": "Segunda", "hora": "18h - 19h" },

@@ -33,7 +33,7 @@ export const getMonitores = async (req: FastifyRequest, reply: FastifyReply): Pr
             reply.status(401).send({ messsage: 'Nenhum monitor foi cadastrado' })
         }
 
-        console.log(monitores)
+        // console.log(monitores)
         reply.status(201).send(monitores);
 
     } catch (error) {
