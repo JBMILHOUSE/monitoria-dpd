@@ -1,6 +1,30 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
 import { Monitor } from "../models/monitor";
 
+export const createMonitor = async (req: FastifyRequest, reply: FastifyReply): Promise<void> => {
+  try {
+    const { nome, avatar, horarios } = req.body as {
+      nome: string;
+      avatar: string;
+      horarios:{ dia: string; hora: string }[];
+    };
+
+
+    const novoMonitor = new Monitor({
+      nome,
+      avatar,
+      horarios,
+    });
+
+    await novoMonitor.save();
+
+    reply.status(201).send({ message: "Monitor cadastrado com sucesso!", monitor: novoMonitor });
+  } catch (error) {
+    reply.status(500).send({ message: "Erro ao cadastrar monitor", error });
+  }
+}
+
+
 export const getMonitores = async (req: FastifyRequest, reply: FastifyReply): Promise<void> => {
     try {
         const monitores = await Monitor.find();

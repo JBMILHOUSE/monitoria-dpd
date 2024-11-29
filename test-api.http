@@ -1,0 +1,17 @@
+###
+GET http://localhost:3333/monitores
+
+
+###
+POST http://localhost:3333/monitor
+Content-Type: 'application/json'
+
+{
+  "nome": "Jorge",
+  "avatar": "",
+  "horarios": [
+    { "dia": "Segunda", "hora": "18h - 19h" },
+    { "dia": "Segunda", "hora": "14h - 16h" },
+    { "dia": "Quinta", "hora": "7h30 - 9h30" }
+  ]
+}
